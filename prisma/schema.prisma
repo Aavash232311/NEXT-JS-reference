@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Restaurant {
+  id String @id @default(cuid())
+  restaurant_name String 
+  restaurant_number Int
+  restaurant_slogan String
+  restaurant_address String
+  restaurant_type String
+  profile_url String
+  cover_url String
+  date_array String
+}
+
+model User {
+    full_name String
+    password String
+    email String   @unique
+    phone_number String
+    id String @id @default(cuid())
+    createdAt DateTime @default(now())
+    active Boolean @default(false)
+    torque Int
+    one_time_password Int
+    mail_sent DateTime @default(now())
+}
+
